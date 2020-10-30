@@ -1,0 +1,135 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4HANA')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_PRODUCT_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="I_DraftAdministrativeDataType" sap:label="Draft Administrative Data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Draft (Technical ID)"/>
+                <Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft In Process Since"/>
+                <Property Name="InProcessByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="InProcessByUserDescription" sap:label="Draft In Process By"/>
+                <Property Name="DraftIsKeptByUser" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Is Kept By User"/>
+                <Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Locked Since"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Created By Me"/>
+                <Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Last Changed By Me"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft In Process By Me"/>
+                <Property Name="CreatedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Created By (Description)"/>
+                <Property Name="LastChangedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Last Changed By (Description)"/>
+                <Property Name="InProcessByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft In Process By (Description)"/>
+                <Property Name="DraftEntityType" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Draft Entity ID"/>
+                <Property Name="PrincipalDraftEntity" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Draft Entity ID"/>
+                <Property Name="PrincipalDraftKey" Type="Edm.Guid" sap:label="Draft (Technical ID)"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="CreatedByUserDescription" sap:label="Draft Created By"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="LastChangedByUserDescription" sap:label="Draft Last Changed By"/>
+                <Property Name="DraftAccessType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Draft Access Type"/>
+            </EntityType>
+            <EntityType Name="Z_C_PRODUCT_TPType" sap:label="Product C View" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="product_uuid"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="Activation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Edit_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="product_uuid" Type="Edm.Guid" Nullable="false" sap:label="Key" sap:quickinfo="UUID serving as key (parent key, root key)"/>
+                <Property Name="product_currency" Type="Edm.String" MaxLength="5" sap:label="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="product_mfgd_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date"/>
+                <Property Name="product_status" Type="Edm.String" MaxLength="50" sap:label="c" sap:quickinfo="Comment"/>
+                <Property Name="created_by" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="created_on" Type="Edm.DateTimeOffset" Precision="0" sap:label="Short Time Stamp" sap:quickinfo="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"/>
+                <Property Name="product_id" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Product ID" sap:quickinfo="Character field of length 40"/>
+                <Property Name="supplier_uuid" Type="Edm.Guid" sap:label="Supplier UUID" sap:quickinfo="UUID serving as key (parent key, root key)"/>
+                <Property Name="category_uuid" Type="Edm.Guid" sap:label="Key" sap:quickinfo="UUID serving as key (parent key, root key)"/>
+                <Property Name="product_name" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char" sap:quickinfo="Character field of length 40"/>
+                <Property Name="product_desc" Type="Edm.String" MaxLength="200" sap:display-format="UpperCase" sap:label="Text (200 chars.)" sap:quickinfo="Text field length 200"/>
+                <Property Name="product_quanity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="product_uom" sap:label="Gross weight"/>
+                <Property Name="product_uom" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="product_price" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="product_currency" sap:label="Value (12,2)" sap:quickinfo="Value field 12(23) characters with 2 decimal places"/>
+                <Property Name="ActiveUUID" Type="Edm.Guid" sap:label="Key"/>
+                <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/>
+                <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active" sap:sortable="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Relationship="ZGW_PRODUCT_SRV.assoc_3730B1A26B0E32E9BBE296D814424DAE" FromRole="FromRole_assoc_3730B1A26B0E32E9BBE296D814424DAE" ToRole="ToRole_assoc_3730B1A26B0E32E9BBE296D814424DAE"/>
+                <NavigationProperty Name="SiblingEntity" Relationship="ZGW_PRODUCT_SRV.assoc_7FC4625107BC33E1847FAA611A86EBAF" FromRole="FromRole_assoc_7FC4625107BC33E1847FAA611A86EBAF" ToRole="ToRole_assoc_7FC4625107BC33E1847FAA611A86EBAF"/>
+            </EntityType>
+            <ComplexType Name="ValidationFunctionResult">
+                <Property Name="IsValid" Type="Edm.Boolean" sap:label="Is valid"/>
+            </ComplexType>
+            <Association Name="assoc_7FC4625107BC33E1847FAA611A86EBAF" sap:content-version="1">
+                <End Type="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" Multiplicity="1" Role="FromRole_assoc_7FC4625107BC33E1847FAA611A86EBAF"/>
+                <End Type="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" Multiplicity="0..1" Role="ToRole_assoc_7FC4625107BC33E1847FAA611A86EBAF"/>
+            </Association>
+            <Association Name="assoc_3730B1A26B0E32E9BBE296D814424DAE" sap:content-version="1">
+                <End Type="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" Multiplicity="1" Role="FromRole_assoc_3730B1A26B0E32E9BBE296D814424DAE"/>
+                <End Type="ZGW_PRODUCT_SRV.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_3730B1A26B0E32E9BBE296D814424DAE"/>
+            </Association>
+            <EntityContainer Name="ZGW_PRODUCT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_DraftAdministrativeData" EntityType="ZGW_PRODUCT_SRV.I_DraftAdministrativeDataType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="Z_C_PRODUCT_TP" EntityType="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_3730B1A26B0E32E9BBE296D814424DAE" Association="ZGW_PRODUCT_SRV.assoc_3730B1A26B0E32E9BBE296D814424DAE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Z_C_PRODUCT_TP" Role="FromRole_assoc_3730B1A26B0E32E9BBE296D814424DAE"/>
+                    <End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_3730B1A26B0E32E9BBE296D814424DAE"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_7FC4625107BC33E1847FAA611A86EBAF" Association="ZGW_PRODUCT_SRV.assoc_7FC4625107BC33E1847FAA611A86EBAF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Z_C_PRODUCT_TP" Role="FromRole_assoc_7FC4625107BC33E1847FAA611A86EBAF"/>
+                    <End EntitySet="Z_C_PRODUCT_TP" Role="ToRole_assoc_7FC4625107BC33E1847FAA611A86EBAF"/>
+                </AssociationSet>
+                <FunctionImport Name="Z_C_PRODUCT_TPActivation" ReturnType="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" EntitySet="Z_C_PRODUCT_TP" m:HttpMethod="POST" sap:action-for="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" sap:applicable-path="Activation_ac">
+                    <Parameter Name="product_uuid" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="Z_C_PRODUCT_TPEdit" ReturnType="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" EntitySet="Z_C_PRODUCT_TP" m:HttpMethod="POST" sap:action-for="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" sap:applicable-path="Edit_ac">
+                    <Parameter Name="product_uuid" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="Z_C_PRODUCT_TPPreparation" ReturnType="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" EntitySet="Z_C_PRODUCT_TP" m:HttpMethod="POST" sap:action-for="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" sap:applicable-path="Preparation_ac">
+                    <Parameter Name="product_uuid" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <FunctionImport Name="Z_C_PRODUCT_TPValidation" ReturnType="ZGW_PRODUCT_SRV.ValidationFunctionResult" m:HttpMethod="GET" sap:action-for="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType" sap:applicable-path="Validation_ac">
+                    <Parameter Name="product_uuid" Type="Edm.Guid" Mode="In"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_PRODUCT_SRV.ZGW_PRODUCT_SRV_Entities/Z_C_PRODUCT_TP">
+                <Annotation Term="Common.DraftRoot">
+                    <Record>
+                        <PropertyValue Property="ActivationAction" String="ZGW_PRODUCT_SRV.ZGW_PRODUCT_SRV_Entities/Z_C_PRODUCT_TPActivation"/>
+                        <PropertyValue Property="EditAction" String="ZGW_PRODUCT_SRV.ZGW_PRODUCT_SRV_Entities/Z_C_PRODUCT_TPEdit"/>
+                        <PropertyValue Property="PreparationAction" String="ZGW_PRODUCT_SRV.ZGW_PRODUCT_SRV_Entities/Z_C_PRODUCT_TPPreparation"/>
+                        <PropertyValue Property="ValidationFunction" String="ZGW_PRODUCT_SRV.ZGW_PRODUCT_SRV_Entities/Z_C_PRODUCT_TPValidation"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>product_uuid</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_PRODUCT_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_PRODUCT_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
