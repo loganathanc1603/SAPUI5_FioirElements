@@ -30,6 +30,20 @@
                 Entity Type from chosen collection 
                 ================================================================================-->
 			<Annotations Target="ZGW_PRODUCT_SRV.Z_C_PRODUCT_TPType">
+				<Annotation Term="Common.SideEffects">
+					<Record Type="Common.SideEffectsType">
+						<PropertyValue Property="SourceProperties">
+							<Collection>
+								<PropertyPath>Product_Status</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="TargetProperties">
+							<Collection>
+								<PropertyPath>Set_status_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.CollectionFacet">
@@ -60,6 +74,11 @@
 							<PropertyValue Property="Label" String="Category"/>
 							<PropertyValue Property="ID" String="CATEGORY"/>
 						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_Supplier/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="Supplier"/>
+							<PropertyValue Property="ID" String="SUPPLIER"/>
+						</Record>
 					</Collection>
 				</Annotation>
 			</Annotations>
@@ -76,6 +95,24 @@
 							</PropertyValue>
 							<PropertyValue Property="Label" String="Category Information"/>
 							<PropertyValue Property="ID" String="CATEGORY_OBJECTPAGE"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGW_PRODUCT_SRV.Z_C_SUPPLIER_TPType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SUPPLIERDATA"/>
+										<PropertyValue Property="Label" String="General Data"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Supplier Information"/>
+							<PropertyValue Property="ID" String="SUPPLIER"/>
 						</Record>
 					</Collection>
 				</Annotation>

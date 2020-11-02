@@ -148,9 +148,17 @@
 										"navigationProperty": "to_Category",
 										"entitySet": "Z_C_CATEGORY_TP",
 										"createMode": "inline",
-										"showConfirmationOnDraftActivate": true,
 										"tableSettings": {
-											"inlineDelete": true
+											"inlineDelete": true,
+											"multiSelect": false
+										}
+									},
+									"SUPPLIER": {
+										"navigationProperty": "to_Supplier",
+										"entitySet": "Z_C_SUPPLIER_TP",
+										"tableSettings": {
+											"inlineDelete": true,
+											"multiSelect": false
 										}
 									}
 								}
@@ -160,6 +168,13 @@
 							"ObjectPage|to_Category": {
 								"navigationProperty": "to_Category",
 								"entitySet": "Z_C_CATEGORY_TP",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}
+							},
+							"ObjectPage|to_Supplier": {
+								"navigationProperty": "to_Supplier",
+								"entitySet": "Z_C_SUPPLIER_TP",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
 								}
