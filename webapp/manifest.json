@@ -105,9 +105,9 @@
 					"refreshAfterChange": false
 				}
 			},
-			"i18n|sap.suite.ui.generic.template.AnalyticalListPage|Z_C_PRODUCT_TP": {
+			"i18n|sap.suite.ui.generic.template.ListReport|Z_C_PRODUCT_TP": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/AnalyticalListPage/Z_C_PRODUCT_TP/i18n.properties"
+				"uri": "i18n/ListReport/Z_C_PRODUCT_TP/i18n.properties"
 			}
 		},
 		"extends": {
@@ -124,10 +124,10 @@
 			"useColumnLayoutForSmartForm": true
 		},
 		"pages": {
-			"AnalyticalListPage|Z_C_PRODUCT_TP": {
+			"ListReport|Z_C_PRODUCT_TP": {
 				"entitySet": "Z_C_PRODUCT_TP",
 				"component": {
-					"name": "sap.suite.ui.generic.template.AnalyticalListPage",
+					"name": "sap.suite.ui.generic.template.ListReport",
 					"list": true,
 					"settings": {
 						"gridTable": false,
