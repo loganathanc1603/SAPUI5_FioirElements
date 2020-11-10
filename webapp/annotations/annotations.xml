@@ -110,6 +110,11 @@
 										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SUPPLIERDATA"/>
 										<PropertyValue Property="Label" String="General Data"/>
 									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SUPPLIERINFO"/>
+										<PropertyValue Property="ID" String="SUPPLIERINFO"/>
+										<PropertyValue Property="Label" String="Supplier Information"/>
+									</Record>
 								</Collection>
 							</PropertyValue>
 							<PropertyValue Property="Label" String="Supplier Information"/>
