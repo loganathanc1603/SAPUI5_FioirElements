@@ -161,6 +161,14 @@
 											"inlineDelete": false,
 											"multiSelect": true
 										}
+									},
+									"ORDERDETAILS": {
+										"navigationProperty": "to_Orderdetail",
+										"entitySet": "Z_C_ORDERDTL_TP",
+										"tableSettings": {
+											"inlineDelete": false,
+											"multiSelect": true
+										}
 									}
 								}
 							}
@@ -176,6 +184,13 @@
 							"ObjectPage|to_Supplier": {
 								"navigationProperty": "to_Supplier",
 								"entitySet": "Z_C_SUPPLIER_TP",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}
+							},
+							"ObjectPage|to_Orderdetail": {
+								"navigationProperty": "to_Orderdetail",
+								"entitySet": "Z_C_ORDERDTL_TP",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
 								}

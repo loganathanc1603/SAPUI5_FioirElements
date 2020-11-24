@@ -79,6 +79,11 @@
 							<PropertyValue Property="Label" String="Supplier"/>
 							<PropertyValue Property="ID" String="SUPPLIER"/>
 						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_Orderdetail/@UI.LineItem"/>
+							<PropertyValue Property="ID" String="ORDERDETAILS"/>
+							<PropertyValue Property="Label" String="Order Details"/>
+						</Record>
 					</Collection>
 				</Annotation>
 			</Annotations>
@@ -119,6 +124,30 @@
 							</PropertyValue>
 							<PropertyValue Property="Label" String="Supplier Information"/>
 							<PropertyValue Property="ID" String="SUPPLIER"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGW_PRODUCT_SRV.Z_C_ORDERDTL_TPType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ORDERBASIC"/>
+										<PropertyValue Property="ID" String="ORDERDTLBASIC"/>
+										<PropertyValue Property="Label" String="Basic Data"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ORDERADMIN"/>
+										<PropertyValue Property="Label" String="Admin Data"/>
+										<PropertyValue Property="ID" String="ORDERDTLADMINID"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Order Details"/>
+							<PropertyValue Property="ID" String="ORDERDETAILSID"/>
 						</Record>
 					</Collection>
 				</Annotation>
