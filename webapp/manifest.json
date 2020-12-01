@@ -131,7 +131,7 @@
 					"list": true,
 					"settings": {
 						"gridTable": false,
-						"multiSelect": false,
+						"multiSelect": true,
 						"autoHide": true,
 						"showGoButtonOnFilterBar": false,
 						"condensedTableLayout": true,
